@@ -1,0 +1,24 @@
+<!-- sldsValidatorIgnore -->
+<!-- sldsValidatorIgnore -->
+<template>
+    <template if:true={show}>
+        <div style="display: flex; justify-content:flex-end; align-items:center; margin-bottom: 10px; ">
+            <div>
+                <button class="slds-button slds-button_brand" onclick={handleClick}>Add new Purchase Order</button>
+            </div>
+        </div>
+    
+        <div style="height: 370px;">
+            <template if:true={ordersList}>
+                <lightning-datatable key-field="Order_Id__c" data={ordersList} columns={columns} hide-checkbox-column="true" sorted-by={sortBy} sorted-direction={sortDirection} onsort={doSorting} show-row-number-column="true"> 
+                </lightning-datatable>
+            </template>
+        </div>
+
+    </template>
+
+    <template if:true={show2}>
+        <c-product-page></c-product-page>
+    </template>
+
+</template>

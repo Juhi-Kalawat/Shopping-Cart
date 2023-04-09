@@ -1,0 +1,27 @@
+<!-- sldsValidatorIgnore -->
+<template>
+    <template if:true={show7}>
+        
+        <div style="display: flex; justify-content:space-between; align-items:center; padding-left:10px; padding-right:10px; background-color:white; color:black; margin-top:10px; margin-bottom:10px; ">
+            <span>Invoice No: #{invoiceNumber}</span>
+            <span>Order Date: {date}</span>
+        </div>
+
+        <div>
+            <template if:true={cartItemsList}>
+                <lightning-datatable key-field="Order_Id__c" data={cartItemsList} show-row-number-column="true" columns={columns} hide-checkbox-column="true">
+                </lightning-datatable>
+            </template>
+        </div> 
+
+        <div style="display: flex; justify-content:center; align-items:center; margin-top: 10px; ">
+            <div>
+                <button class="slds-button slds-button_brand" onclick={placeOrder}>Place Order</button>
+            </div>
+        </div>
+    </template>
+
+    <template if:true={show8}>
+        <c-order-list-page></c-order-list-page>
+    </template>
+</template>

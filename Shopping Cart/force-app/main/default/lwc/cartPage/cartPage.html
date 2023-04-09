@@ -1,0 +1,32 @@
+<!-- sldsValidatorIgnore -->
+<!-- sldsValidatorIgnore -->
+<template>
+
+    <template if:true={show5}>
+        <div style="display: flyex; justify-content:space-between; align-items:center; margin-bottom: 10px;">
+            <div>
+                <button class="slds-button slds-button_brand" onclick={backToProducts}>Back</button>
+            </div>
+            <div>
+                <button class="slds-button slds-button_brand" onclick={deleteItems}>Delete Item</button>
+                <button class="slds-button slds-button_brand" onclick={createOrder}>Place Order</button>
+            </div>
+        </div>
+
+        <div style="height: 380px;">
+            <template if:true={cartItemsList}>
+                <lightning-datatable key-field="Order_Id__c" data={cartItemsList} show-row-number-column="true" columns={columns} sorted-by={sortBy} sorted-direction={sortDirection} onsort={doSorting}>
+                </lightning-datatable>
+            </template>
+        </div> 
+    </template>
+
+    <template if:true={show6}>
+        <c-invoice-page></c-invoice-page>
+    </template>
+
+    <template if:true={back}>
+        <c-product-page></c-product-page>
+    </template>
+
+</template>
